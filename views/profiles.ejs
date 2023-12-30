@@ -1,0 +1,25 @@
+<%- include('partials/header', { user: user }); %>
+
+<h1>Profielen</h1>
+
+<main class="profiles">
+  <% for (const profile of profiles) { %>
+  <div class="profile">
+    <p>Name: <%= profile.name %></p>
+    <p>E-mail: <%= profile.email %></p>
+    <img src="<%= profile.picture %>" alt="" />
+
+    <% if (user.friendsId.find(friend => friend === profile.id)) { %>
+    <p>Bevriend</p>
+    <% } else if (user.id === profile.id) { %>
+    <p>Ingelogde profiel</p>
+    <%} else { %>
+    <form action="/friendship/<%= profile.id %>" method="post">
+      <button type="submit">Vriend toevoegen</button>
+    </form>
+    <% } %>
+  </div>
+  <% } %>
+</main>
+
+<%- include('partials/footer'); %>

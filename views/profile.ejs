@@ -1,0 +1,39 @@
+<%- include('partials/header'); %>
+
+<h1>Profiel van <%= user.name %></h1>
+
+<main class="profile-page">
+  <form action="/profile/edit" method="post">
+    <label for="username">Gebruikersnaam:</label>
+    <input
+      type="text"
+      id="username"
+      name="username"
+      value="<%= user.name %>"
+      readonly
+    />
+
+    <label for="email">E-mailadres:</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      value="<%= user.email %>"
+      readonly
+    />
+
+    <label for="picture">URL van de foto:</label>
+    <input type="url" id="picture" name="picture" value="<%= user.picture %>" />
+
+    <img src="<%= user.picture %>" alt="" />
+
+    <label for="description">Korte omschrijving:</label>
+    <textarea id="description" name="description">
+<%= user.description %></textarea
+    >
+
+    <button type="submit">Opslaan</button>
+  </form>
+</main>
+
+<%- include('partials/footer'); %>

@@ -1,0 +1,16 @@
+<%- include('partials/header'); %> <% if (locals.message) { %>
+<div class="success">Succesvol ingelogd</div>
+<% } %>
+
+<main class="home">
+  <h1>Alle berichten</h1>
+  <% for (const profile of profiles) { if (profile.messages.length > 0) { %>
+  <h2><%= profile.name %></h2>
+  <img src="<%= profile.picture %>" alt="" />
+  <hr />
+  <%}%> <% profile.messages.map(message => { %>
+  <li><%= message %></li>
+  <% })} %>
+</main>
+
+<%- include('partials/footer'); %>

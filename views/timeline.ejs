@@ -1,0 +1,19 @@
+<%- include('partials/header'); %>
+
+<main>
+  <h1>Tijdlijn van <%= user.name %></h1>
+  <div class="timeline">
+    <form action="/timeline/post" method="post">
+      <label for="message">Plaats een nieuw bericht:</label>
+      <input type="text" id="message" name="message" required />
+      <button type="submit">Plaats bericht</button>
+    </form>
+    <ul>
+      <% user.messages.map(message => { %>
+      <li><%= message %></li>
+      <% }) %>
+    </ul>
+  </div>
+</main>
+
+<%- include('partials/footer'); %>

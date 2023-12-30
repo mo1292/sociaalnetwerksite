@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/reset.css" />
+    <link rel="stylesheet" href="/styleLogin.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <h1>MiniFB</h1>
+    </header>
+    <% if (locals.message) { %>
+    <div class="success"><%= message %></div>
+    <% } %>
+    <h2>Welkom terug</h2>
+    <div class="login">
+      <form action="/login" method="post">
+        <input type="text" name="name" placeholder="Naam" required />
+        <input
+          type="password"
+          name="password"
+          placeholder="Wachtwoord"
+          required
+        />
+        <button type="submit">Login</button>
+      </form>
+    </div>
+
+    <%- include('partials/footer'); %>
+  </body>
+</html>
